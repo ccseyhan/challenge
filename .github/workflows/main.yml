@@ -75,11 +75,8 @@ jobs:
       - name: unzip artifact for deployment
         run: unzip release.zip
 
-      - name: 'Deploy to Azure Web App'
-        id: deploy-to-webapp
+      - name: 'Run Azure webapp deploy action using publish profile credentials'
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'ccseyhantest'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_889E9E2790C64343BB955AB72BC253AD }}
-          package: .          
+          app-name: ccseyhantest
+          publish-profile: ${{ secrets.azureWebAppPublishProfile }}
