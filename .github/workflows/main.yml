@@ -25,6 +25,8 @@ jobs:
       - name: Install dependencies for the agent
         run: |
           npm install -g npm@7
+          npm install -g prettier
+
           
       - name: Checkout code
         uses: actions/checkout@v2
