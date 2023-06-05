@@ -16,7 +16,10 @@ jobs:
       
     steps:
       - name: Install dependencies for the agent
-        run: npm install -g npm@7
+        run: |
+          npm install -g npm@7
+          nvm install 15
+          nvm use 15
         
       - name: Checkout code
         uses: actions/checkout@v2
