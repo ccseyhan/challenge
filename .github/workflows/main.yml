@@ -15,12 +15,13 @@ jobs:
       working-directory: codebase/rdicidr-0.1.0/
       
     steps:
-      - name: Install dependencies for the agent
-        run: |
-          npm install -g npm@7
-          nvm install 15
-          nvm use 15
-        
+      - uses: actions/setup-node@v3
+        with:
+    # Version Spec of the version to use in SemVer notation.
+    # It also emits such aliases as lts, latest, nightly and canary builds
+    # Examples: 12.x, 10.15.1, >=10.15.0, lts/Hydrogen, 16-nightly, latest, node
+          node-version: 'latest'
+          
       - name: Checkout code
         uses: actions/checkout@v2
 
