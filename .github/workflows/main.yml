@@ -11,22 +11,29 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    env:
+      working-directory: codebase/rdicidr-0.1.0/
+      
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Install dependencies
         run: npm install
+        working-directory: ${{ env.working-directory }}
 
       - name: Linter (ESLint)
         run: npm run lint
+        working-directory: ${{ env.working-directory }}
 
       - name: Formatter (Prettier)
         run: npm run prettier
+        working-directory: ${{ env.working-directory }}
 
       - name: Test (Jest)
         run: npm run test --if-present -- --ci
+        working-directory: ${{ env.working-directory }}
 
       - name: Build
         run: npm run build
+        working-directory: ${{ env.working-directory }}
